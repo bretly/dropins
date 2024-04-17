@@ -33,6 +33,8 @@
   },
   "dependencies": {
     "@adobe/magento-storefront-event-collector": "^1.8.0",
-    "@adobe/magento-storefront-events-sdk": "^1.8.0"
+    "@adobe/magento-storefront-events-sdk": "^1.8.0",
+    "@dropins/storefront-pdp": "^0.2.2-alpha22",
+    "@dropins/tools": "^0.21.0"
   }
 }
