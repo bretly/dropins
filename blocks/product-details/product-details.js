@@ -1,6 +1,7 @@
 // Dropin Tools
 import { initializers } from '@dropins/tools/initializer.js';
 import { getConfigValue } from '../../scripts/configs.js';
+import { getSkuFromUrl } from '../../scripts/commerce.js';
 
 // Dropin Functions
 import * as product from '@dropins/storefront-pdp/api.js';
@@ -17,7 +18,8 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // window.addEventListener('load', initializers.mount);
 
 // Set endpoint configuration
-product.setEndpoint('https://catalog-service-sandbox.adobe.io/graphql');
+
+product.setEndpoint(await(getConfigValue('commerce-endpoint')));
 
 product.setFetchGraphQlHeaders({
   // Environment required headers
@@ -32,7 +34,7 @@ product.setFetchGraphQlHeaders({
 
 // Render Product Details
 productRenderer.render(ProductDetails, {
-  sku: '24-MB03',
+  sku: getSkuFromUrl(),
   // other configuration options
   // slots for adding custom elements, components, and functions
 })(document.querySelector('.prod-details'));
